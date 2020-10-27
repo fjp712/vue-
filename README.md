@@ -1,5 +1,16 @@
 # component
 
+### 组件的使用
+
+懒加载组件
+
+```html
+<lazyload height="" width="" :src=""/>
+<!--height是图片高度，width是指图片宽度，src是指图片源-->
+```
+
+
+
 ## Project setup
 ```
 npm install
