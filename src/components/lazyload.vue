@@ -8,7 +8,8 @@
         name: "lazyload",
         data:function(){
             return {
-                temsrc:require('@/assets/timg.gif')
+                temsrc:require('@/assets/timg.gif'),
+                flag:null
             }
         },
         methods:{
@@ -18,15 +19,16 @@
                 }
             },
             denounce:function () {
-                let flag=null;
-                if(flag)
-                    clearTimeout(flag)
-                flag=setTimeout(this.lazyload,2000)
+                if(this.flag)
+                    clearTimeout(this.flag)
+                this.flag=setTimeout(this.lazyload,2000)
             }
         },
         mounted() {
             this.denounce()
+            this.$once('beforeDestroy',()=>clearTimeout(this.flag))
         }
+
     }
 </script>
 
