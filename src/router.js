@@ -1,14 +1,14 @@
 import VueRouter from "vue-router"
 import Vue from "vue"
-import main from "./components/main";
+import drap from "./components/drap";
 Vue.use(VueRouter)
 
 export default new VueRouter({
     routes:[
         {
         path:"/",
-        name:"main",
-        component:main,
+        name:"drap",
+        component:drap,
 
     }]
 })
