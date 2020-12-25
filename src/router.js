@@ -6,9 +6,14 @@ Vue.use(VueRouter)
 export default new VueRouter({
     routes:[
         {
-        path:"/",
-        name:"drap",
-        component:drap,
-
-    }]
+            path:"/",
+            name:"drap",
+            component:drap,
+        },
+        {
+            path:'/flex',
+            name: '弹性布局',
+            component: ()=>import('@/components/flex')
+        }
+    ]
 })
