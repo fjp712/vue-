@@ -14,6 +14,11 @@ export default new VueRouter({
             path:'/flex',
             name: '弹性布局',
             component: ()=>import('@/components/flex')
+        },
+        {
+            path: '/views',
+            name: '视图',
+            component: ()=>import('@/components/views')
         }
     ]
 })
