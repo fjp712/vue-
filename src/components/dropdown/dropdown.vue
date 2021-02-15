@@ -30,18 +30,20 @@
             }
         },
         methods:{
-          showChildren(){
-             if(this.showChildrenFlag==="visible")
-             {
-                 this.showChildrenFlag="hidden"
-             }
-             else
-                 this.showChildrenFlag="visible"
-              console.log(this.showChildrenFlag)
+          showChildren() {
+              let childrenNode=(document.querySelectorAll(".childrenNode"))[0]
+              if(childrenNode.style.visibility==="hidden")
+              {
+                  childrenNode.style.visibility="visible"
+              }
+              else {
+                  childrenNode.style.visibility="hidden"
+              }
+
+
           }
         },
         render(createElement ) {
-            let childrenNode=[]
             if(this.showChildrenFirst)
             {
                 this.showChildrenFlag="visible"
@@ -49,23 +51,32 @@
             else
                 this.showChildrenFlag="hidden"
 
-            childrenNode=this.datalist.map((value)=>createElement(
+            let childrenNode=createElement(
                 "div",
                 {
                     style:{
-                        visibility:this.showChildrenFlag
-                    }
+                        visibility:this.showChildrenFlag,
+                        marginTop:"25px"
+                    },
+                    class:"childrenNode"
                 },
-                [
-                    createElement("p",
+                this.datalist.map((value)=>
+                    createElement(
+                        "p",
                         {
+                            style:{
+                                margin:"0px",
+                                paddingTop:"4px"
+                            },
+                            class:"childrenItem",
                             domProps:{
                                 innerText:value
                             }
                         }
                     )
-                ]
-            ))
+                )
+            )
+
             return createElement(
                 "div",
                 {
@@ -78,15 +89,19 @@
                         click:this.showChildren
                     }
                 },
-                childrenNode
+                [childrenNode]
             )
         }
     }
 </script>
 
 <style scoped lang="scss">
-.father{
-    border-radius: 5px;
-    border:1px solid #00e1ff;
-}
+    .father{
+        border-radius: 5px;
+        border:1px solid #00e1ff;
+        :hover{
+            cursor: pointer;
+        }
+    }
+
 </style>
