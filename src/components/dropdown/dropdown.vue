@@ -1,5 +1,4 @@
 
-
 <script>
     export default {
         name: "dropdown",
@@ -44,13 +43,6 @@
           }
         },
         render(createElement ) {
-            if(this.showChildrenFirst)
-            {
-                this.showChildrenFlag="visible"
-            }
-            else
-                this.showChildrenFlag="hidden"
-
             let childrenNode=createElement(
                 "div",
                 {
